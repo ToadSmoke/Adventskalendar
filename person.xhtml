@@ -18,7 +18,7 @@
         if (ausgewaehlterName) {
             ausgewaehlterNameElement.textContent = 'Hallo, ' + ausgewaehlterName;
 
-            fetch('toadsmoke.github.io/Adventskalendar/zeige_daten.php?name=' + ausgewaehlterName)
+            fetch('https://yoursite.netlify.app/.netlify/functions/zeige_daten?name=' + ausgewaehlterName)
     .then(response => {
         if (!response.ok) {
             throw new Error('HTTP-Fehler, Status: ' + response.status);
