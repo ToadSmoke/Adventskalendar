@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";
+$host = "https://toadsmoke.github.io/Adventskalendar/";
 $name = "adventskalender";
 $user = "root";
 $passwort = "";
