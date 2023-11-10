@@ -14,6 +14,7 @@ try {
         $sql = "SELECT end_name , date FROM persons WHERE name = :selectedName";
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':selectedName', $selectedName, PDO::PARAM_STR);
+        header('Access-Control-Allow-Origin: *');
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
