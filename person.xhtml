@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+    <title>Zielseite</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <h1>Willkommen zum Adventskalender</h1>
+    <h1 id="ausgewaehlterName">Hier wird der Name angezeigt</h1>
+    <div id="begruesstext"></div>
+    <div id="datum"></div>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var ausgewaehlterName = urlParams.get('name');
+        var ausgewaehlterNameElement = document.getElementById('ausgewaehlterName');
+
+        if (ausgewaehlterName) {
+            ausgewaehlterNameElement.textContent = 'Hallo, ' + ausgewaehlterName;
+
+            fetch('http://localhost/AdventskalendarWebseite/zeige_daten.php?name=' + ausgewaehlterName)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('HTTP-Fehler, Status: ' + response.status);
+        }
+        return response.text(); // Hier Text, nicht JSON
+    })
+    .then(data => {
+        console.log('Empfangener JSON-Text:', data); // JSON-Text ausgeben
+
+        try {
+            var jsonData = JSON.parse(data);
+            if (jsonData) {
+                var ausgewaehlterNameElement = document.getElementById('ausgewaehlterName');
+                ausgewaehlterNameElement.textContent = 'Hallo ' + ausgewaehlterName + ', deine Person ist: ' + jsonData.end_name + ' am ' + jsonData.date;
+            } else {
+                document.getElementById('begruesstext').textContent = 'Fehler: Kein Name gefunden oder keine End Name vorhanden.';
+            }
+        } catch (e) {
+            console.error('Fehler beim Parsen der JSON-Daten:', e);
+            document.getElementById('begruesstext').textContent = 'Fehler beim Verarbeiten der empfangenen Daten.';
+        }
+    })
+    .catch(error => {
+        console.error('Fehler beim Abrufen der Daten:', error);
+        document.getElementById('begruesstext').textContent = 'Fehler beim Abrufen der Daten.';
+    });
+
+
+        } else {
+            document.getElementById('begruesstext').textContent = 'Fehler: Kein Name ausgewählt.';
+        }
+    </script>
+</body>
+</html>

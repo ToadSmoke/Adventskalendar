@@ -1,0 +1,34 @@
+select {
+    width: 200px; 
+    padding: 10px;
+    margin: 0 auto; 
+    display: block;
+}
+label{
+    width: auto;
+    text-align: center;
+    padding-bottom: 20px;
+    display: block;
+}
+body {
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 20px auto; 
+}
+#begruesstext{
+    width: auto;
+    text-align: center;
+    padding-bottom: 20px;
+    display: block;
+}
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+    <title>Familien-Adventskalender</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <h1>Willkommen zum Familien-Adventskalender</h1>
+    
+    <form>
+        <label for="familienmitglied">Wähle dein Familienmitglied aus:</label>
+        <select id="familienmitglied" name="familienmitglied">
+            <option value="">-- Bitte auswählen --</option>
+            <option value="Jakob">Jakob</option>
+            <option value="Jonathan">Jonathan</option>
+            <option value="Gina">Gina</option>
+            <option value="Johanne">Johanne</option>
+            <option value="Peter">Peter</option>
+            <option value="Christiane">Christiane</option>
+            <option value="Ruben">Ruben</option>
+            <option value="Till">Till</option>
+            <option value="Jule">Juliane</option>
+            <option value="Tobias">Tobias</option>
+            <option value="Arne">Arne</option>
+            <option value="Anneke">Anneke</option>
+            <option value="Renate">Renate</option>
+            <option value="Jürgen">Jürgen</option>
+            <option value="Anna">Anna</option>
+            <option value="Christian">Christian</option>
+            <option value="Lena">Lena</option>
+            <option value="Eetu">Eetu</option>
+            <option value="Doro">Doro</option>
+            <option value="Oma">Oma</option>
+            <option value="Tante Eva">Tante Eva</option>
+        </select>
+        <input type="submit" value="Auswählen" />
+    </form>
+    
+    <div id="ausgewaehlterName"></div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var ausgewaehlterName = document.querySelector('#familienmitglied').value;
+            
+            if (ausgewaehlterName !== '') {
+                var selectedURL = 'person.xhtml?name=' + encodeURIComponent(ausgewaehlterName);
+                window.location.href = selectedURL;
+            } else {
+                alert('Bitte wähle ein Familienmitglied aus.');
+            }
+        });
+    </script>
+</body>
+</html>
