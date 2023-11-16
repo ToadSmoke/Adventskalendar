@@ -7,9 +7,9 @@ exports.handler = async function (event, context) {
 
     // Verbindung zur MySQL-Datenbank herstellen
     const connection = await mysql.createConnection({
-      host: 'https://github.com/ToadSmoke/Adventskalendar',
-      user: 'root',
-      password: '',
+      host: 'postgres://sjhqjvuj:eh1Ql-qCtb7RZDSTHYXNVNBheSkJL3dx@cornelius.db.elephantsql.com/sjhqjvuj',
+      user: 'sjhqjvuj',
+      password: 'eh1Ql-qCtb7RZDSTHYXNVNBheSkJL3dx',
       database: 'adventskalendar',
     });
 
