@@ -1,8 +1,8 @@
 <?php
-$host = "https://toadsmoke.github.io/Adventskalendar/";
+$host = "postgres://sjhqjvuj:eh1Ql-qCtb7RZDSTHYXNVNBheSkJL3dx@cornelius.db.elephantsql.com/sjhqjvuj";
 $name = "adventskalender";
-$user = "root";
-$passwort = "";
+$user = "sjhqjvuj";
+$passwort = "eh1Ql-qCtb7RZDSTHYXNVNBheSkJL3dx";
 
 try {
     $connection = new PDO("mysql:host=$host;dbname=$name", $user, $passwort);
