@@ -18,7 +18,7 @@
         if (ausgewaehlterName) {
             ausgewaehlterNameElement.textContent = 'Hallo, ' + ausgewaehlterName;
 
-            fetch('https://yoursite.netlify.app/.netlify/functions/zeige_daten?name=' + ausgewaehlterName)
+            fetch('https://lighthearted-buttercream-0fbc7b.netlify.app/.netlify/functions/zeige_daten?name=' + ausgewaehlterName)
     .then(response => {
         if (!response.ok) {
             throw new Error('HTTP-Fehler, Status: ' + response.status);
